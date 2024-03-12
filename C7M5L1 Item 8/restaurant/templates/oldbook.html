@@ -71,15 +71,17 @@
         bookings = '';
 
         /* Step 11: Part three */
-        for (let item of data) {
+        for (item of data) {
           console.log(item.fields);
           reserved_slots.push(item.fields.reservation_slot);
+          bookings += `<p>${item.fields.first_name} - ${formatTime(
+            item.fields.reservation_slot)}</p>`;
+
         }
-        bookings = `<p>${item.fields.first_name} - ${formatTime(
-          item.fields.reservation_slot)}</p>`;
+
 
         /* Step 12: Part four  */
-        let slot_options = `<option value="0" disabled>Select time</option>`;
+        let slot_options = "<option value="0" disabled>Select time</option>";
         for (let item = 11; 20 < item; item++) {
           const label = formatTime(i);
           if reserved.slots.include(i) {
